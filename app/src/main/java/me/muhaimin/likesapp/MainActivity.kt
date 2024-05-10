@@ -3,8 +3,11 @@ package me.muhaimin.likesapp
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Paint
+import android.graphics.Path
 import android.graphics.Rect
 import android.graphics.RectF
+import android.graphics.Region
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.content.res.ResourcesCompat
@@ -36,15 +39,21 @@ class MainActivity : AppCompatActivity() {
         showText()
 
         binding.like.setOnClickListener {
+            showEars()
             showFace()
             showMouth(true)
             showEyes()
+            showNose()
+            showHair()
         }
 
         binding.dislike.setOnClickListener {
+            showEars()
             showFace()
             showMouth(false)
             showEyes()
+            showNose()
+            showHair()
         }
     }
 
@@ -123,5 +132,51 @@ class MainActivity : AppCompatActivity() {
                 mCanvas.drawArc(mouth, 0f, -180f, false, mPaint)
             }
         }
+    }
+
+    private fun showNose() {
+        mPaint.color = ResourcesCompat.getColor(resources, R.color.black, null)
+        mCanvas.drawCircle(halfOfWidth - 40f, halfOfHeight + 140f, 15f, mPaint)
+        mCanvas.drawCircle(halfOfWidth + 40f, halfOfHeight + 140f, 15f, mPaint)
+    }
+
+    private fun showEars() {
+        mPaint.color = ResourcesCompat.getColor(resources, R.color.brown_left_hair, null)
+        mCanvas.drawCircle(halfOfWidth - 300f, halfOfHeight - 100f, 100f, mPaint)
+
+        mPaint.color = ResourcesCompat.getColor(resources, R.color.brown_right_hair, null)
+        mCanvas.drawCircle(halfOfWidth + 300f, halfOfHeight - 100f, 100f, mPaint)
+
+        mPaint.color = ResourcesCompat.getColor(resources, R.color.red_ear, null)
+        mCanvas.drawCircle(halfOfWidth - 300f, halfOfHeight - 100f, 60f, mPaint)
+        mCanvas.drawCircle(halfOfWidth + 300f, halfOfHeight - 100f, 60f, mPaint)
+    }
+
+    private fun showHair() {
+        mCanvas.save()
+
+        val path = Path()
+
+        path.addCircle(halfOfWidth - 100f, halfOfHeight - 10f, 150f, Path.Direction.CCW)
+        path.addCircle(halfOfWidth + 100f, halfOfHeight - 10f, 150f, Path.Direction.CCW)
+
+        val mouth = RectF(halfOfWidth - 250f, halfOfHeight, halfOfWidth + 259f, halfOfHeight + 500f)
+        path.addOval(mouth, Path.Direction.CCW)
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
+            mCanvas.clipPath(path, Region.Op.DIFFERENCE)
+        } else {
+            mCanvas.clipOutPath(path)
+        }
+
+        val face = RectF(left, top, right, bottom)
+
+        mPaint.color = ResourcesCompat.getColor(resources, R.color.brown_left_hair, null)
+        mCanvas.drawArc(face, 90f, 180f, false, mPaint)
+
+        mPaint.color = ResourcesCompat.getColor(resources, R.color.brown_right_hair, null)
+        mCanvas.drawArc(face, 270f, 180f, false, mPaint)
+
+        mCanvas.restore()
     }
 }
