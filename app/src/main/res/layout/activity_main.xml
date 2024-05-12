@@ -32,7 +32,7 @@
         android:layout_marginEnd="32dp"
         android:lines="1"
         android:maxLines="1"
-        android:text=""
+        tools:text="Halo Muhaimin"
         android:textColor="@color/black"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
