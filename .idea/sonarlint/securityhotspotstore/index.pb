@@ -12,3 +12,5 @@ P
  app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
 f
 6app/src/main/java/me/muhaimin/mycamera/MainActivity.kt,4/5/45b18ced05916d9e2230089b5322a0c3cb79e13d
+_
+/app/src/main/java/me/muhaimin/mycamera/Utils.kt,1/7/170518dd070e391da5b68f8a6bdd3e62a39230a0
