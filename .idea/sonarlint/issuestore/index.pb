@@ -20,3 +20,15 @@ m
 =app/src/main/java/me/muhaimin/mycamera/data/api/ApiService.kt,f/c/fc14b5a62e29c827c19a376741e4f5fead6e845f
 l
 <app/src/main/java/me/muhaimin/mycamera/data/api/ApiConfig.kt,c/6/c62c80516a29857017cec15ecace81679e44a03a
+j
+:app/src/main/java/me/muhaimin/mycamera/ViewModelFactory.kt,2/a/2a3c12e97c61e7cf8394b2243e733c72a78c2a08
+k
+;app/src/main/java/me/muhaimin/mycamera/data/di/Injection.kt,8/8/8850817e91ff6441739f3c6315c396402456316b
+o
+?app/src/main/java/me/muhaimin/mycamera/data/UploadRepository.kt,4/2/42cf82da524689fc90d967a01369a9712a820c78
+j
+:app/src/main/java/me/muhaimin/mycamera/data/ResultState.kt,8/5/85e5755471168536476c86980d49a22ab4b6fe0d
+f
+6app/src/main/java/me/muhaimin/mycamera/MainViewMode.kt,8/f/8f04474088f7ba85fef15482c327a9beb12ab6e9
+g
+7app/src/main/java/me/muhaimin/mycamera/MainViewModel.kt,8/c/8cab85d7b6e73618db76efe4aa8eb198fa358ead
